@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use Artisan;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -11,12 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
-	public function setUp()
-	{
-		parent::setUp();
-
-	    Artisan::call('migrate:refresh', ['--seed' => true]);
-	}
+    use DatabaseTransactions;
 
     public function test_have_10_users()
     {
